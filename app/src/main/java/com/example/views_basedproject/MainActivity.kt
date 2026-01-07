@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
             val enteredName = inputField.text.toString()
             val message = "Wellcome $enteredName"
             greetingTextView.text = message
+            inputField.text.clear()
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
