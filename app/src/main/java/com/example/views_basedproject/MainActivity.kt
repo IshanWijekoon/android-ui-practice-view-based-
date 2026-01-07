@@ -1,17 +1,17 @@
 package com.example.views_basedproject
 
-import android.annotation.SuppressLint
+
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -21,9 +21,16 @@ class MainActivity : AppCompatActivity() {
         val btn = findViewById<Button>(R.id.submit_btn)
         btn.setOnClickListener {
             val enteredName = inputField.text.toString()
-            val message = "Wellcome $enteredName"
-            greetingTextView.text = message
-            inputField.text.clear()
+            if(enteredName == ""){
+                Toast.makeText(this@MainActivity,
+                    "Please, enter your name!",
+                    Toast.LENGTH_LONG).show()
+            }else{
+                val message = "Wellcome $enteredName"
+                greetingTextView.text = message
+                inputField.text.clear()
+            }
+
         }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
