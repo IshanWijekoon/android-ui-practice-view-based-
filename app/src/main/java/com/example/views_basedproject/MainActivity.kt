@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         btn.setOnClickListener {
             val enteredName = inputField.text.toString()
             if(enteredName == ""){
+                greetingTextView.text = ""
                 Toast.makeText(this@MainActivity,
                     "Please, enter your name!",
                     Toast.LENGTH_LONG).show()
