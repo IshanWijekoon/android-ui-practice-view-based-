@@ -23,8 +23,9 @@ class MainActivity : AppCompatActivity() {
         val inputField = findViewById<EditText>(R.id.edit_text)
         val btn = findViewById<Button>(R.id.submit_btn)
         val offersButton = findViewById<Button>(R.id.btnOffers)
+        var enteredName = ""
         btn.setOnClickListener {
-            val enteredName = inputField.text.toString()
+            enteredName = inputField.text.toString()
             if(enteredName == ""){
                 offersButton.visibility = INVISIBLE
                 greetingTextView.text = ""
@@ -42,6 +43,7 @@ class MainActivity : AppCompatActivity() {
 
         offersButton.setOnClickListener {
             val intent = Intent(this, SecondActivity::class.java)
+            intent.putExtra("USER", enteredName)
             startActivity(intent)
         }
 
