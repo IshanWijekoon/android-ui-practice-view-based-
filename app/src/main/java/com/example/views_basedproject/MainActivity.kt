@@ -2,6 +2,8 @@ package com.example.views_basedproject
 
 
 import android.os.Bundle
+import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -19,9 +21,11 @@ class MainActivity : AppCompatActivity() {
         val greetingTextView = findViewById<TextView>(R.id.Hello)
         val inputField = findViewById<EditText>(R.id.edit_text)
         val btn = findViewById<Button>(R.id.submit_btn)
+        val offersButton = findViewById<Button>(R.id.btnOffers)
         btn.setOnClickListener {
             val enteredName = inputField.text.toString()
             if(enteredName == ""){
+                offersButton.visibility = INVISIBLE
                 greetingTextView.text = ""
                 Toast.makeText(this@MainActivity,
                     "Please, enter your name!",
@@ -30,6 +34,7 @@ class MainActivity : AppCompatActivity() {
                 val message = "Wellcome $enteredName"
                 greetingTextView.text = message
                 inputField.text.clear()
+                offersButton.visibility = VISIBLE
             }
 
         }
