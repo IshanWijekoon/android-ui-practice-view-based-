@@ -1,6 +1,7 @@
 package com.example.views_basedproject
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View.INVISIBLE
 import android.view.View.VISIBLE
@@ -39,7 +40,10 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-
+        offersButton.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
+        }
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
